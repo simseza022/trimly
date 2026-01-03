@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Trimly.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd3c21efefd2f3f3842ff2dcdcb15f577ff81cdb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f60adadeb2f9190b51ca5f61a4f6b91f5d0060b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Trimly.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Trimly.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
