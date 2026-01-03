@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Trimly.API.props" />
+</Project>

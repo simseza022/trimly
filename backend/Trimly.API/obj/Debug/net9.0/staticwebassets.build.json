@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "dmMyJDS1gSWEhA0R3OFiseMWSFtm1mn52FwIyQAPU48=",
+  "Source": "Trimly.API",
+  "BasePath": "_content/Trimly.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
