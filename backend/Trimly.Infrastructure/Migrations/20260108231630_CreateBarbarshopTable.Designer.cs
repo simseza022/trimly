@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trimly.Infrastructure.Persistance;
 
@@ -11,9 +12,11 @@ using Trimly.Infrastructure.Persistance;
 namespace Trimly.Infrastructure.Migrations
 {
     [DbContext(typeof(TrimlyDbContext))]
-    partial class TrimlyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260108231630_CreateBarbarshopTable")]
+    partial class CreateBarbarshopTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

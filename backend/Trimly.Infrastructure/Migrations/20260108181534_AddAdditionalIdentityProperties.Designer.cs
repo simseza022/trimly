@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Trimly.Infrastructure.Persistance;
 
@@ -11,9 +12,11 @@ using Trimly.Infrastructure.Persistance;
 namespace Trimly.Infrastructure.Migrations
 {
     [DbContext(typeof(TrimlyDbContext))]
-    partial class TrimlyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260108181534_AddAdditionalIdentityProperties")]
+    partial class AddAdditionalIdentityProperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,49 +158,6 @@ namespace Trimly.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Trimly.Domain.Barbershop.Barbershop", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<string>("ImageId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Latitude")
-                        .HasColumnType("decimal(9,6)");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Longitude")
-                        .HasColumnType("decimal(9,6)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OwnerUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerUserId")
-                        .IsUnique();
-
-                    b.ToTable("Barbershops", "BarberShop");
-                });
-
             modelBuilder.Entity("Trimly.Domain.User.TrimlyUser", b =>
                 {
                     b.Property<string>("Id")
@@ -325,22 +285,6 @@ namespace Trimly.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Trimly.Domain.Barbershop.Barbershop", b =>
-                {
-                    b.HasOne("Trimly.Domain.User.TrimlyUser", "OwnerUser")
-                        .WithOne("Barbershop")
-                        .HasForeignKey("Trimly.Domain.Barbershop.Barbershop", "OwnerUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("OwnerUser");
-                });
-
-            modelBuilder.Entity("Trimly.Domain.User.TrimlyUser", b =>
-                {
-                    b.Navigation("Barbershop");
                 });
 #pragma warning restore 612, 618
         }

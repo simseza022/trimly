@@ -54,8 +54,6 @@
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.Core.dll
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.AspNetCore.DataProtection.dll
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.WebEncoders.dll
-/home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.Configuration.dll
-/home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.ObjectPool.dll
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.Hosting.Abstractions.dll
 /home/sisonke/Projects/trimly/backend/Trimly.Infrastructure/bin/Debug/net9.0/Microsoft.Extensions.Diagnostics.dll
