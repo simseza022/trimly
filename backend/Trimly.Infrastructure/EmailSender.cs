@@ -42,7 +42,7 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
             PlatformLink = confirmationLink
         };
 
-        string template = "/Emails/Templates/SendConfirmationLink";
+        string template = "Emails/SendConfirmationLink";
         
         var content = await _renderer.RenderViewToStringAsync(template, model);
         

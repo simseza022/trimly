@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Trimly.Infrastructure.Helpers;
 
@@ -15,16 +16,18 @@ using System.Text;
 
 public class RazorViewToStringRenderer(
     IRazorViewEngine viewEngine,
-    ITempDataProvider tempDataProvider,
+    ITempDataProvider _tempDataProvider,
     IServiceProvider serviceProvider)
 {
     public async Task<string> RenderViewToStringAsync<TModel>(
         string viewName,
         TModel model)
     {
+        using var scope = serviceProvider.CreateScope();
+
         var httpContext = new DefaultHttpContext
         {
-            RequestServices = serviceProvider
+            RequestServices = scope.ServiceProvider
         };
 
         var actionContext = new ActionContext(
@@ -52,8 +55,8 @@ public class RazorViewToStringRenderer(
             viewResult.View,
             viewDictionary,
             new TempDataDictionary(
-                actionContext.HttpContext,
-                tempDataProvider),
+                httpContext,
+                scope.ServiceProvider.GetRequiredService<ITempDataProvider>()),
             sw,
             new HtmlHelperOptions()
         );
@@ -62,4 +65,5 @@ public class RazorViewToStringRenderer(
 
         return sw.ToString();
     }
+
 }

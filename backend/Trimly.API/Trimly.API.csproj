@@ -24,7 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Emails\Templates\SendConfirmationLink.cshtml" />
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Emails\SendConfirmationLink.cshtml" />
   </ItemGroup>
 
 </Project>
