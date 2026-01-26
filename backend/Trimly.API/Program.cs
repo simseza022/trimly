@@ -1,7 +1,10 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.AspNetCore.Mvc.Razor;
+using Trimly.API.Options;
+using Trimly.Domain.User;
 using Trimly.Infrastructure;
+using Trimly.Infrastructure.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthorization();
@@ -11,7 +14,8 @@ builder.Services.AddInfrastructure(connectionString ?? "DefaultConnection");
 // register TimeProvider required by Identity API endpoints
 builder.Services.AddSingleton(System.TimeProvider.System);
 
-builder.Services.AddSingleton<IEmailSender<IdentityUser>, EmailSender>();
+builder.Services.AddTransient<IEmailSender<TrimlyUser>, EmailSender>();
+builder.Services.AddTransient(typeof(RazorViewToStringRenderer));
 
 // cfg.RegisterServicesFromAssembly(typeof(Trimly.Application.SomeHandler).Assembly);
 builder.Services.AddMediatR(cfg => 
@@ -26,14 +30,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddRazorPages();
+
+builder.Services
+    .AddControllersWithViews()
+    .AddRazorRuntimeCompilation();
+
+builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection(SmtpOptions.Smtp));
 
 var app = builder.Build();
+
+app.UseRouting();  
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapIdentityApi<TrimlyUser>();
 
-app.MapIdentityApi<IdentityUser>();
+app.MapRazorPages();
 
 app.MapControllers();
 

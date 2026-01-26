@@ -1,30 +1,62 @@
 
 
+using System.Net.Mail;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using MimeKit;
+using MimeKit.Text;
+using Trimly.API.Options;
+using Trimly.Domain.Emails;
+using Trimly.Domain.User;
+using Trimly.Infrastructure.Helpers;
 
 namespace Trimly.Infrastructure;
 
-public class EmailSender: IEmailSender<IdentityUser>
+public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer _renderer ) : IEmailSender<TrimlyUser>
 {
-    public Task SendEmailAsync(string email, string subject, string htmlMessage)
+
+    private readonly SmtpOptions _smtpOptions = options.Value;
+
+    public  async Task SendEmailAsync(string email, string subject, string htmlMessage)
     {
-        Console.WriteLine($"Email to {email} | Subject: {subject}");
-        return Task.CompletedTask;
+        using var body = new TextPart(TextFormat.Html);
+        body.Text = htmlMessage;
+
+        var toMailAddresses = new MailAddressCollection();
+        toMailAddresses.Add(new MailAddress(email));
+        
+        using var message = new MailMessage
+            (new MailAddress("noreply@example.com", null), toMailAddresses[0]);
+        message.IsBodyHtml = true;
+        message.Subject = subject;
+        message.Body = body.ToString();
+
+        using var client = new SmtpClient(_smtpOptions.Host, _smtpOptions.Port);
+        await client.SendMailAsync(message);
     }
 
-    public Task SendConfirmationLinkAsync(IdentityUser user, string email, string confirmationLink)
+    public async Task SendConfirmationLinkAsync(TrimlyUser user, string email, string confirmationLink)
+    {
+        var model = new SendConfirmationLink
+        {
+            PlatformLink = confirmationLink
+        };
+
+        string template = "/Emails/Templates/SendConfirmationLink";
+        
+        var content = await _renderer.RenderViewToStringAsync(template, model);
+        
+        await this.SendEmailAsync(email, "Confirm your email", content);
+        Console.WriteLine($"Email to {email} | Subject: {content}");
+    }
+
+    public Task SendPasswordResetLinkAsync(TrimlyUser user, string email, string resetLink)
     {
         Console.WriteLine($"Email to {email} | Subject: ");
         return Task.CompletedTask;
     }
 
-    public Task SendPasswordResetLinkAsync(IdentityUser user, string email, string resetLink)
-    {
-        Console.WriteLine($"Email to {email} | Subject: ");
-        return Task.CompletedTask;
-    }
-
-    public Task SendPasswordResetCodeAsync(IdentityUser user, string email, string resetCode)
+    public Task SendPasswordResetCodeAsync(TrimlyUser user, string email, string resetCode)
     {
         Console.WriteLine($"Email to {email} | Subject: ");
         return Task.CompletedTask;

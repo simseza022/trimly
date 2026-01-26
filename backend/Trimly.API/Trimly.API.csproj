@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Trimly.Infrastructure\Trimly.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Emails\Templates\SendConfirmationLink.cshtml" />
+  </ItemGroup>
+
 </Project>

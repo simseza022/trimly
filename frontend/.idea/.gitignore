@@ -1,0 +1,53 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.frontend.iml
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# ================================
+# .NET build output
+# ================================
+**/bin/
+**/obj/
+
+# ================================
+# Rider / JetBrains
+# ================================
+.idea/
+*.sln.iml
+
+# ================================
+# Visual Studio
+# ================================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ================================
+# OS files
+# ================================
+.DS_Store
+Thumbs.db
+
+# ================================
+# Logs
+# ================================
+*.log
+
+# ================================
+# Environment
+# ================================
+appsettings.*.json
+!appsettings.json
