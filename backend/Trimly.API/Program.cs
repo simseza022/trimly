@@ -36,6 +36,10 @@ builder.Services
     .AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 
+builder.Services.AddAuthentication()
+    .AddBearerToken(IdentityConstants.BearerScheme); 
+
+
 builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection(SmtpOptions.Smtp));
 
 var app = builder.Build();

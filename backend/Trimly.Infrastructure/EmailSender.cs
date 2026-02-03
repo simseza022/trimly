@@ -50,15 +50,34 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
         Console.WriteLine($"Email to {email} | Subject: {content}");
     }
 
-    public Task SendPasswordResetLinkAsync(TrimlyUser user, string email, string resetLink)
+    public async Task SendPasswordResetLinkAsync(TrimlyUser user, string email, string resetLink)
     {
-        Console.WriteLine($"Email to {email} | Subject: ");
-        return Task.CompletedTask;
+        var model = new SendConfirmationLink
+        {
+            PlatformLink = resetLink
+        };
+
+        string template = "Emails/SendConfirmationLink";
+        
+        var content = await _renderer.RenderViewToStringAsync(template, model);
+        
+        await this.SendEmailAsync(email, "Confirm your email", content);
+        Console.WriteLine($"Email to {email} | Subject: {content}");
     }
 
-    public Task SendPasswordResetCodeAsync(TrimlyUser user, string email, string resetCode)
+    public async Task SendPasswordResetCodeAsync(TrimlyUser user, string email, string resetCode)
     {
-        Console.WriteLine($"Email to {email} | Subject: ");
-        return Task.CompletedTask;
+        
+        var model = new SendConfirmationLink
+        {
+            PlatformLink = resetCode
+        };
+
+        string template = "Emails/SendConfirmationLink";
+        
+        var content = await _renderer.RenderViewToStringAsync(template, model);
+        
+        await this.SendEmailAsync(email, "Confirm your email", content);
+        Console.WriteLine($"Email to {email} | Subject: {content}");
     }
 }
