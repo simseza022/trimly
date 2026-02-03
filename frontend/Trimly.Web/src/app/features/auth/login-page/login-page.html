@@ -1,3 +1,24 @@
-<form class="flex items-center justify-center w-screen h-screen" [formGroup]="form" (ngSubmit)="onSubmit()">
-  <formly-form class=" bg-red-700" [form]="form" [fields]="fields" [model]="model"></formly-form>
+<form class="bg-black flex items-center justify-center w-screen h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div  class="w-fit h-fit p-10 bg-red-white rounded-3xl flex flex-col justify-start items-center alert gap-5">
+    <img src="assets/images/logo.png" class="w-16 h-16 bg-white rounded-xl logo-image">
+
+    <div class="text-center">
+      <h1 class="text-xl font-bold">Sign in with email</h1>
+      <p class="font-bold text-gray-400">Your time matters.</p>
+      <p class="font-bold text-gray-400">Trimly makes it simple.</p>
+    </div>
+
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <div class="flex flex-row w-full items-end justify-end -mt-5 ">
+      <p class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Forgot password?</p>
+    </div>
+    <button class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Get Started</button>
+    <p class="font-bold  text-xs text-gray-400">Or sign in with</p>
+  <div class="login-icon p-1 rounded-2 px-4 rounded-lg">
+    <ng-icon [name]="googleIcon" class="text-lg cursor-pointer  -mb-1"></ng-icon>
+  </div>
+
+  </div>
+
+
 </form>
