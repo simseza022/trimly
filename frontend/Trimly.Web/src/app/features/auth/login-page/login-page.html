@@ -12,11 +12,16 @@
     <div class="flex flex-row w-full items-end justify-end -mt-5 ">
       <p class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Forgot password?</p>
     </div>
-    <button class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Get Started</button>
+    <button type="submit"  class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Login</button>
     <p class="font-bold  text-xs text-gray-400">Or sign in with</p>
-  <div class="login-icon p-1 rounded-2 px-4 rounded-lg">
-    <ng-icon [name]="googleIcon" class="text-lg cursor-pointer  -mb-1"></ng-icon>
-  </div>
+    <div class="login-icon p-1 rounded-2 px-4 rounded-lg">
+      <ng-icon [name]="googleIcon" class="text-lg cursor-pointer  -mb-1"></ng-icon>
+    </div>
+
+    <div class="flex flex-row w-full justify-center items-center  mt-3 gap-2">
+      <p class=" text-xs text-gray-400 cursor-pointer ">Already have an account?</p>
+      <p routerLink="/register" class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Register</p>
+    </div>
 
   </div>
 

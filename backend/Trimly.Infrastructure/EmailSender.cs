@@ -1,14 +1,12 @@
-
-
 using System.Net.Mail;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
-using Trimly.API.Options;
 using Trimly.Domain.Emails;
 using Trimly.Domain.User;
 using Trimly.Infrastructure.Helpers;
+using Trimly.Infrastructure.Options;
 
 namespace Trimly.Infrastructure;
 

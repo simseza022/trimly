@@ -4,13 +4,15 @@ import {FieldArrayType, FormlyFieldConfig, FormlyModule} from '@ngx-formly/core'
 import {InputFieldType} from '../../../shared/components/form-components/input-field-type/input-field-type';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {svglGoogle} from '@ng-icons/svgl';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
   imports: [
     ReactiveFormsModule,
     FormlyModule,
-    NgIcon
+    NgIcon,
+    RouterLink
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
@@ -27,7 +29,8 @@ export class LoginPage {
       props: {
         placeholder: 'Email',
         icon: 'matfEmailUncolored',
-        type: 'email'
+        type: 'email',
+        required: true
       },
       className:'flex rounded-lg'
     },
@@ -37,7 +40,8 @@ export class LoginPage {
       props: {
         placeholder: 'Password',
         icon: 'matPassword',
-        type: 'password'
+        type: 'password',
+        required: true
       },
       className:'flex rounded-lg'
     }

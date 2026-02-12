@@ -1,12 +1,22 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Trimly.API.Options;
 using Trimly.Domain.User;
 using Trimly.Infrastructure;
 using Trimly.Infrastructure.Helpers;
+using Trimly.Infrastructure.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var allowedOrigins = builder.Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>();
+
+builder.Services.AddCors(options =>
+    options.AddPolicy("DevCors", policy =>
+    {
+        policy.WithOrigins(allowedOrigins ?? []);
+    }));
+
 builder.Services.AddAuthorization();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddInfrastructure(connectionString ?? "DefaultConnection");
