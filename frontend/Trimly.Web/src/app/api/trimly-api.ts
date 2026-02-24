@@ -136,8 +136,8 @@ export class Client {
     }
 
     /**
-     * @param useCookies (optional) 
-     * @param useSessionCookies (optional) 
+     * @param useCookies (optional)
+     * @param useSessionCookies (optional)
      * @return OK
      */
     login(useCookies: boolean | undefined, useSessionCookies: boolean | undefined, body: LoginRequest): Observable<AccessTokenResponse> {
@@ -256,7 +256,7 @@ export class Client {
     }
 
     /**
-     * @param changedEmail (optional) 
+     * @param changedEmail (optional)
      * @return OK
      */
     mapIdentityApi_confirmEmail(userId: string, code: string, changedEmail: string | undefined): Observable<void> {
@@ -281,7 +281,7 @@ export class Client {
             headers: new HttpHeaders({
             })
         };
-
+      console.log(url_);
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
             return this.processMapIdentityApi_confirmEmail(response_);
         })).pipe(_observableCatch((response_: any) => {
@@ -298,6 +298,7 @@ export class Client {
 
     protected processMapIdentityApi_confirmEmail(response: HttpResponseBase): Observable<void> {
         const status = response.status;
+      console.log(response);
         const responseBlob =
             response instanceof HttpResponse ? response.body :
             (response as any).error instanceof Blob ? (response as any).error : undefined;

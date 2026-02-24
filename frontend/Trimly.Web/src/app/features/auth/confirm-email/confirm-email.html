@@ -1,0 +1,8 @@
+@if(emailConfirmed){
+  <p>Email confirmed!</p>
+  <a routerLink="/login">Login</a>
+} @else if (emailConfirmationFailed){
+  <p>Email confirmation failed!</p>
+} @else {
+  <p>Confirming email...</p>
+}

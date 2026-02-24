@@ -14,7 +14,10 @@ var allowedOrigins = builder.Configuration
 builder.Services.AddCors(options =>
     options.AddPolicy("DevCors", policy =>
     {
-        policy.WithOrigins(allowedOrigins ?? []);
+        policy.WithOrigins(allowedOrigins ?? [])
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     }));
 
 builder.Services.AddAuthorization();
@@ -58,6 +61,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors("DevCors");
 
 app.MapIdentityApi<TrimlyUser>();
 

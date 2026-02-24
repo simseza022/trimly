@@ -1,5 +1,8 @@
+using System.Net;
 using System.Net.Mail;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
@@ -10,12 +13,13 @@ using Trimly.Infrastructure.Options;
 
 namespace Trimly.Infrastructure;
 
-public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer _renderer ) : IEmailSender<TrimlyUser>
+public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer renderer, IConfiguration config) : IEmailSender<TrimlyUser>
 {
 
     private readonly SmtpOptions _smtpOptions = options.Value;
+    private readonly string _clientUrl = config.GetSection("ClientURL").Get<string>() ?? throw new ArgumentNullException("ClientURL");
 
-    public  async Task SendEmailAsync(string email, string subject, string htmlMessage)
+    private async Task SendEmailAsync(string email, string subject, string htmlMessage)
     {
         using var body = new TextPart(TextFormat.Html);
         body.Text = htmlMessage;
@@ -35,15 +39,35 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
 
     public async Task SendConfirmationLinkAsync(TrimlyUser user, string email, string confirmationLink)
     {
+        //1. Decode the URL 
+        confirmationLink = WebUtility.HtmlDecode(confirmationLink);
+        
+        var uri = new Uri(confirmationLink);
+        var queryParams = QueryHelpers.ParseQuery(uri.Query);
+
+        string userId;
+        string code;
+        if (!string.IsNullOrEmpty(queryParams["userId"]) && !string.IsNullOrEmpty(queryParams["code"]))
+        {
+            userId = queryParams["userId"].ToString();
+            code = queryParams["code"].ToString();
+        }
+        else
+        {
+            throw new Exception("Error confirming email.");
+        }
+        
+        //2. Create the model
         var model = new SendConfirmationLink
         {
-            PlatformLink = confirmationLink
+            PlatformLink = $"{_clientUrl}/confirm-email?userId={userId}&code={code}"
         };
 
+        //3. Render the email
         string template = "Emails/SendConfirmationLink";
+        var content = await renderer.RenderViewToStringAsync(template, model);
         
-        var content = await _renderer.RenderViewToStringAsync(template, model);
-        
+        //4. Send the email
         await this.SendEmailAsync(email, "Confirm your email", content);
         Console.WriteLine($"Email to {email} | Subject: {content}");
     }
@@ -57,7 +81,7 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
 
         string template = "Emails/SendConfirmationLink";
         
-        var content = await _renderer.RenderViewToStringAsync(template, model);
+        var content = await renderer.RenderViewToStringAsync(template, model);
         
         await this.SendEmailAsync(email, "Confirm your email", content);
         Console.WriteLine($"Email to {email} | Subject: {content}");
@@ -73,7 +97,7 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
 
         string template = "Emails/SendConfirmationLink";
         
-        var content = await _renderer.RenderViewToStringAsync(template, model);
+        var content = await renderer.RenderViewToStringAsync(template, model);
         
         await this.SendEmailAsync(email, "Confirm your email", content);
         Console.WriteLine($"Email to {email} | Subject: {content}");

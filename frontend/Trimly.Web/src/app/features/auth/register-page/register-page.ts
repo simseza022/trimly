@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {FormlyFieldConfig, FormlyModule} from "@ngx-formly/core";
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgIcon, provideIcons} from "@ng-icons/core";
 import {InputFieldType} from '../../../shared/components/form-components/input-field-type/input-field-type';
 import {svglGoogle} from '@ng-icons/svgl';
 import {RouterLink} from '@angular/router';
+import {Client, IRegisterRequest, RegisterRequest} from '../../../api/trimly-api';
+import {LOAD_STATE} from '../../../shared/utils/LOAD_STATE';
 
 @Component({
   selector: 'app-register-page',
@@ -22,7 +24,7 @@ import {RouterLink} from '@angular/router';
 export class RegisterPage {
   googleIcon = 'svglGoogle'
   form = new FormGroup({});
-  model = { email: '' };
+  model = { email: '' , password: ''};
   fields: FormlyFieldConfig[] = [
     {
       key: 'email',
@@ -56,13 +58,32 @@ export class RegisterPage {
       className:'flex rounded-lg'
     }
   ];
+  apiClient: Client;
+  loadState = LOAD_STATE.NOT_LOADING;
+
+  constructor(@Inject(Client) apiClient: Client) {
+    this.apiClient = apiClient;
+  }
 
   onSubmit() {
-    if(this.form.valid){
-      console.log(this.model);
-      console.log("Valid form",this.form);
-    }else{
-      console.log("Errors",this.form);
+    if(this.form.valid) {
+      this.loadState = LOAD_STATE.LOADING;
+      const payload: IRegisterRequest = {
+        email: this.model.email,
+        password: this.model.password
+      }
+
+      this.apiClient.register(new RegisterRequest(payload)).subscribe({
+        next: () => {
+          this.loadState = LOAD_STATE.LOADED;
+
+        },
+        error: (err) => {
+          this.loadState = LOAD_STATE.ERROR;
+        }
+      })
     }
   }
+
+  protected readonly LOAD_STATE = LOAD_STATE;
 }

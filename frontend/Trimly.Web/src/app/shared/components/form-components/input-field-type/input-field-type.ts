@@ -16,7 +16,7 @@ import {NgClass} from '@angular/common';
     NgIcon,
   ],
   template : `
-    <label class="input input-sm outline-0  bg-gray-50 min-w-64 lg:min-w-72 rounded-md mb-2">
+    <label class="input input-sm outline-0 bg-gray-50 min-w-64 lg:min-w-72 rounded-md mb-2">
       @if(field.props['icon']){
         <ng-icon class="text-lg h-3!" [name]="field.props['icon']"></ng-icon>
       }
