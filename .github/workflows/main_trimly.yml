@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: angular-app
-          path: frontend/Trimly.Web/dist
+          path: frontend/Trimly.Web/dist/Trimly.Web/browser
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,4 +51,5 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9243EDF803C540C4BA50537A8FA18B7C }}
+
 
