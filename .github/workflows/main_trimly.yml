@@ -28,12 +28,13 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+        working-directory: frontend/Trimly.Web
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: angular-app
+          path: frontend/Trimly.Web/dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,4 +53,5 @@ jobs:
           app-name: 'trimly'
           slot-name: 'Production'
           package: .
+
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9243EDF803C540C4BA50537A8FA18B7C }}
