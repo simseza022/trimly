@@ -1,10 +1,13 @@
-import {Component, model} from '@angular/core';
+import {AfterViewInit, Component, inject, model, OnInit} from '@angular/core';
 import {FormGroup, ReactiveFormsModule} from '@angular/forms';
-import {FieldArrayType, FormlyFieldConfig, FormlyModule} from '@ngx-formly/core';
+import {FormlyFieldConfig, FormlyModule} from '@ngx-formly/core';
 import {InputFieldType} from '../../../shared/components/form-components/input-field-type/input-field-type';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {svglGoogle} from '@ng-icons/svgl';
-import {RouterLink} from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
+import {mergeMap, Subject, Subscription} from 'rxjs';
+import {Alert} from '../../../shared/directives/alert';
+import {removeQueryParameter} from '../../../shared/utils/UrlUtilities';
 
 @Component({
   selector: 'app-login-page',
@@ -12,13 +15,17 @@ import {RouterLink} from '@angular/router';
     ReactiveFormsModule,
     FormlyModule,
     NgIcon,
-    RouterLink
+    RouterLink,
+    Alert
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
   viewProviders: [provideIcons({ svglGoogle })]
 })
-export class LoginPage {
+export class LoginPage implements OnInit, AfterViewInit{
+  activatedRoute:ActivatedRoute = inject(ActivatedRoute);
+  queryParamsSubscription: Subscription | null = null;
+  emailConfirmed = new Subject<void>();
   googleIcon = 'svglGoogle'
   form = new FormGroup({});
   model = { email: '' };
@@ -46,9 +53,19 @@ export class LoginPage {
       className:'flex rounded-lg'
     }
   ];
-
+  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    this.queryParamsSubscription = this.activatedRoute.queryParamMap.subscribe(params => {
+      const emailConfirmed = params.get('emailConfirmed');
+      if(emailConfirmed == 'true') {
+        this.emailConfirmed.next();
+        removeQueryParameter('emailConfirmed');
+      }
+    })
+  }
   onSubmit() {
     console.log(model);
-
+    this.emailConfirmed.next();
   }
+
 }

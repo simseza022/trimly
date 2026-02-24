@@ -1,7 +1,11 @@
 <form class="bg-black flex items-center justify-center w-screen h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div appAlert [alertTrigger]="emailConfirmed.asObservable()" class="toast toast-top toast-center hidden">
+    <div class="alert alert-info alert-soft text-black">
+      <span>Email confirmed. You can now log in.</span>
+    </div>
+  </div>
   <div  class="w-fit h-fit p-10 bg-white rounded-3xl flex flex-col justify-start items-center alert gap-5">
     <img src="assets/images/logo.png" class="w-16 h-16 bg-white rounded-xl logo-image">
-
     <div class="text-center">
       <h1 class="text-xl font-bold">Sign in with email</h1>
       <p class="font-bold text-gray-400">Your time matters.</p>
@@ -12,7 +16,7 @@
     <div class="flex flex-row w-full items-end justify-end -mt-5 ">
       <p class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Forgot password?</p>
     </div>
-    <button type="submit"  class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Login</button>
+    <button type="submit" class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Login</button>
     <p class="font-bold  text-xs text-gray-400">Or sign in with</p>
     <div class="login-icon p-1 rounded-2 px-4 rounded-lg">
       <ng-icon [name]="googleIcon" class="text-lg cursor-pointer  -mb-1"></ng-icon>

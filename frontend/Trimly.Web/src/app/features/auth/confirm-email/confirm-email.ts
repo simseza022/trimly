@@ -17,7 +17,7 @@ export class ConfirmEmail implements OnInit, OnDestroy{
   emailConfirmationFailed = false;
   activatedRoute:ActivatedRoute = inject(ActivatedRoute);
   apiClient: Client = inject(Client);
-  queryParamsSubscription: Subscription | null= null;
+  queryParamsSubscription: Subscription | null = null;
   ngOnInit(): void {
     this.queryParamsSubscription = this.activatedRoute.queryParamMap.pipe(
       mergeMap(params => {
@@ -37,7 +37,7 @@ export class ConfirmEmail implements OnInit, OnDestroy{
       next: () => {
         console.log("email confirmed");
         this.emailConfirmed = true;
-        // window.location.href = "/login";
+        window.location.href = "/login?emailConfirmed=true";
       },
     });
   }
