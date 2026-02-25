@@ -5,7 +5,7 @@ import {Observable, Subscription} from 'rxjs';
   selector: '[appAlert]'
 })
 export class Alert implements OnInit{
-  @Input('alertTrigger') alertTrigger$: Observable<void> | undefined;
+  @Input({required: true, alias: 'alertTrigger'}) alertTrigger$: Observable<void> | undefined;
   sub:Subscription | undefined;
   constructor(private el: ElementRef) {}
 

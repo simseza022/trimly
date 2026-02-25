@@ -1,4 +1,7 @@
 <form class="bg-black flex items-center justify-center w-screen h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-alert-popup
+    [text]="loginResponseText"
+    [alertTrigger]="loginResponseTrigger$.asObservable()"></app-alert-popup>
   <div  class="w-fit h-fit p-10 bg-white rounded-3xl flex flex-col justify-start items-center alert gap-5">
     <img src="assets/images/logo.png" class="w-16 h-16 bg-white rounded-xl logo-image">
 
@@ -10,7 +13,7 @@
 
     <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
 
-    <button type="submit" class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">
+    <button type="submit"  class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">
       @switch (loadState) {
         @case (LOAD_STATE.LOADING) {
           <span class="loading loading-dots loading-xs"></span>

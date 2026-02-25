@@ -8,6 +8,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 import {mergeMap, Subject, Subscription} from 'rxjs';
 import {Alert} from '../../../shared/directives/alert';
 import {removeQueryParameter} from '../../../shared/utils/UrlUtilities';
+import {AlertPopup} from '../../../shared/components/alert-popup/alert-popup';
 
 @Component({
   selector: 'app-login-page',
@@ -16,7 +17,7 @@ import {removeQueryParameter} from '../../../shared/utils/UrlUtilities';
     FormlyModule,
     NgIcon,
     RouterLink,
-    Alert
+    AlertPopup
   ],
   templateUrl: './login-page.html',
   styleUrl: './login-page.css',
@@ -65,7 +66,9 @@ export class LoginPage implements OnInit, AfterViewInit{
   }
   onSubmit() {
     console.log(model);
-    this.emailConfirmed.next();
+    if(this.form.valid) {
+     //Todo: Implement login
+    }
   }
 
 }

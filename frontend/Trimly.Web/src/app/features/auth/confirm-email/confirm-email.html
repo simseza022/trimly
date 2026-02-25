@@ -1,8 +1,11 @@
-@if(emailConfirmed){
-  <p>Email confirmed!</p>
-  <a routerLink="/login">Login</a>
-} @else if (emailConfirmationFailed){
-  <p>Email confirmation failed!</p>
-} @else {
-  <p>Confirming email...</p>
-}
+
+<div class="bg-black text-white flex items-center justify-center w-screen min-h-dvh lg:h-screen ">
+  @if(emailConfirmed){
+    <p>Email confirmed!</p>
+    <a routerLink="/login">Login</a>
+  } @else if (emailConfirmationFailed){
+    <p>Email confirmation failed!</p>
+  } @else {
+    <p>Confirming email...</p>
+  }
+</div>

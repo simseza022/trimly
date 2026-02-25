@@ -13,5 +13,13 @@ export const routes: Routes = [
   {
     path: 'confirm-email',
     loadComponent: () => import('./features/auth/confirm-email/confirm-email').then(m => m.ConfirmEmail)
+  },
+  {
+    path: 'registration-complete',
+    loadComponent: () => import('./features/auth/registration-complete/registration-complete').then(m => m.RegistrationComplete)
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./features/home/home/home').then(m => m.Home)
   }
 ];

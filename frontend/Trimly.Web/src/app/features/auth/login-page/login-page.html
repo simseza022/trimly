@@ -1,9 +1,7 @@
-<form class="bg-black flex items-center justify-center w-screen h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div appAlert [alertTrigger]="emailConfirmed.asObservable()" class="toast toast-top toast-center hidden">
-    <div class="alert alert-info alert-soft text-black">
-      <span>Email confirmed. You can now log in.</span>
-    </div>
-  </div>
+<form class="bg-black flex items-center justify-center w-screen min-h-dvh lg:h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-alert-popup
+    text="Email confirmed. You can now log in."
+    [alertTrigger]="emailConfirmed.asObservable()"></app-alert-popup>
   <div  class="w-fit h-fit p-10 bg-white rounded-3xl flex flex-col justify-start items-center alert gap-5">
     <img src="assets/images/logo.png" class="w-16 h-16 bg-white rounded-xl logo-image">
     <div class="text-center">

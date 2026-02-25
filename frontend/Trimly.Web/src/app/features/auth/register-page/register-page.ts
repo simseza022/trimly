@@ -1,12 +1,14 @@
-import {Component, Inject} from '@angular/core';
+import {Component, inject, Inject} from '@angular/core';
 import {FormlyFieldConfig, FormlyModule} from "@ngx-formly/core";
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgIcon, provideIcons} from "@ng-icons/core";
 import {InputFieldType} from '../../../shared/components/form-components/input-field-type/input-field-type';
 import {svglGoogle} from '@ng-icons/svgl';
-import {RouterLink} from '@angular/router';
-import {Client, IRegisterRequest, RegisterRequest} from '../../../api/trimly-api';
+import {Router, RouterLink} from '@angular/router';
+import {Client, HttpValidationProblemDetails, IRegisterRequest, RegisterRequest} from '../../../api/trimly-api';
 import {LOAD_STATE} from '../../../shared/utils/LOAD_STATE';
+import {AlertPopup} from '../../../shared/components/alert-popup/alert-popup';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-register-page',
@@ -15,7 +17,8 @@ import {LOAD_STATE} from '../../../shared/utils/LOAD_STATE';
     FormsModule,
     NgIcon,
     ReactiveFormsModule,
-    RouterLink
+    RouterLink,
+    AlertPopup
   ],
   templateUrl: './register-page.html',
   styleUrl: './register-page.css',
@@ -25,6 +28,7 @@ export class RegisterPage {
   googleIcon = 'svglGoogle'
   form = new FormGroup({});
   model = { email: '' , password: ''};
+  router = inject(Router);
   fields: FormlyFieldConfig[] = [
     {
       key: 'email',
@@ -74,16 +78,28 @@ export class RegisterPage {
       }
 
       this.apiClient.register(new RegisterRequest(payload)).subscribe({
+        error: (err: HttpValidationProblemDetails) => {
+          const errors = err.errors;
+          if (errors) {
+              if (errors['DuplicateUserName']) {
+                this.loginResponseText = 'Email already in use. Login or use a different email.';
+                this.loginResponseTrigger$.next();
+              }
+              else{
+                this.loginResponseText = 'An error occurred. Please try again later.';
+              }
+          }
+          this.loadState = LOAD_STATE.ERROR;
+        },
         next: () => {
           this.loadState = LOAD_STATE.LOADED;
-
-        },
-        error: (err) => {
-          this.loadState = LOAD_STATE.ERROR;
+          this.router.navigate(['/registration-complete']);
         }
       })
     }
   }
 
   protected readonly LOAD_STATE = LOAD_STATE;
+  protected loginResponseText: string = '';
+  protected loginResponseTrigger$ = new Subject<void>();
 }

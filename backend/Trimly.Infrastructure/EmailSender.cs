@@ -68,7 +68,7 @@ public class EmailSender(IOptions<SmtpOptions> options,RazorViewToStringRenderer
         var content = await renderer.RenderViewToStringAsync(template, model);
         
         //4. Send the email
-        await this.SendEmailAsync(email, "Confirm your email", content);
+        await this.SendEmailAsync(email, "Verify Your Email Address – Trimly", content);
         Console.WriteLine($"Email to {email} | Subject: {content}");
     }
 
