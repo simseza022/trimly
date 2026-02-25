@@ -39,7 +39,7 @@ public class TrimlyDbContextFactory
             ?? throw new InvalidOperationException(
                 "Connection string 'DefaultConnection' not found.");
 
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseNpgsql(connectionString);
 
         return new TrimlyDbContext(optionsBuilder.Options);
     }

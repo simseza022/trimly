@@ -1,8 +1,8 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
-using Trimly.Domain.User;
 using Trimly.Infrastructure;
 using Trimly.Infrastructure.Helpers;
+using Trimly.Infrastructure.Identity;
 using Trimly.Infrastructure.Options;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Trimly.Domain.Barbershop;
-using Trimly.Domain.User;
+using Trimly.Infrastructure.Identity;
 
 namespace Trimly.Infrastructure.Persistance;
 
@@ -22,10 +22,10 @@ public class TrimlyDbContext : IdentityDbContext<TrimlyUser, IdentityRole, strin
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<TrimlyUser>()
-            .HasOne(e => e.Barbershop)
-            .WithOne(u => u.OwnerUser)
-            .HasForeignKey<Barbershop>(k => k.OwnerUserId)
+        modelBuilder.Entity<Barbershop>()
+            .HasOne<TrimlyUser>()
+            .WithMany(b => b.OwnedBarberShops)
+            .HasForeignKey(k => k.OwnerUserId)
             .IsRequired();
         
         

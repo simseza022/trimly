@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
+using Trimly.Domain.Barbershop;
 
-namespace Trimly.Domain.User;
+namespace Trimly.Infrastructure.Identity;
 
 /// <summary>
 /// Represents an application user within the Trimly system.
@@ -14,19 +15,19 @@ public class TrimlyUser : IdentityUser
     /// <summary>
     /// Represents the first name of the user
     /// </summary>
-    [Column(TypeName = "varchar(50)")]
+    [MaxLength(50)]
     public string? FirstName { get; set; }
     
     /// <summary>
     /// Represents the last name of the user
     /// </summary>
-    [Column(TypeName = "varchar(50)")]
+    [MaxLength(50)]
     public string? LastName { get; set; }
     
     /// <summary>
     /// Represents the users Profile picture ID
     /// </summary>
-    [Column(TypeName = "varchar(50)")]
+    [MaxLength(50)]
     public string? ProfilePictureId { get; set; }
 
     /// <summary>
@@ -34,11 +35,11 @@ public class TrimlyUser : IdentityUser
     /// </summary>
     [MaxLength(500)]
     public string? Description { get; set; }
-    
+
     /// <summary>
     /// Provides a reference to the barbershop that the user belongs to.
     /// </summary>
-    
-    public Barbershop.Barbershop?  Barbershop { get; set; } = null; //Navigation
+
+    public ICollection<Barbershop> OwnedBarberShops { get; set; } = null;
 }
 

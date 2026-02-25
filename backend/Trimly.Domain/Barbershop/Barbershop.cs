@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Trimly.Domain.Common;
-using Trimly.Domain.User;
 
 namespace Trimly.Domain.Barbershop;
 
@@ -25,31 +24,26 @@ public class Barbershop
     /// <summary>
     /// Provides a textual description of the barbershop, detailing its features, services, or other relevant information.
     /// </summary>
-    [Column(TypeName = "varchar(500)")]
     public string Description { get; set; } = string.Empty;
     
     /// <summary>
     /// Represents the barbershp location
     /// </summary>
-    [Column(TypeName = "nvarchar(max)")]
     public string Location { get; set; } = string.Empty;
     
     /// <summary>
     /// Represents the barbershp location latitude
     /// </summary>
-    [Column(TypeName = "decimal(9,6)")]
     public decimal Latitude { get; set; }
 
     /// <summary>
     /// Represents the barbershp location longitude
     /// </summary>
-    [Column(TypeName = "decimal(9,6)")]
     public decimal Longitude { get; set; }
     
     /// <summary>
     /// Represents the phone number of the barbershop
     /// </summary>
-    [MaxLength(13)]
     public string? PhoneNumber { get; set; } 
     
     /// <summary>
@@ -62,9 +56,4 @@ public class Barbershop
     /// </summary>
     [Required]
     public required string OwnerUserId { get; set; }
-    
-    /// <summary>
-    /// Navigation to the user that owns the barbershop
-    /// </summary>
-    public required TrimlyUser OwnerUser { get; set; } // Navigation
 }

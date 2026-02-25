@@ -7,8 +7,8 @@ using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
 using Trimly.Domain.Emails;
-using Trimly.Domain.User;
 using Trimly.Infrastructure.Helpers;
+using Trimly.Infrastructure.Identity;
 using Trimly.Infrastructure.Options;
 
 namespace Trimly.Infrastructure;

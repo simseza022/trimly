@@ -2,7 +2,7 @@ using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Trimly.Domain.User;
+using Trimly.Infrastructure.Identity;
 using Trimly.Infrastructure.Persistance;
 
 namespace Trimly.Infrastructure;
@@ -18,7 +18,7 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, string connectionString)
     {
         services.AddDbContext<TrimlyDbContext>(
-            options => options.UseSqlServer(connectionString));
+            options => options.UseNpgsql(connectionString));
 
         // services.AddIdentityCore<IdentityUser>(options =>
         //     {
