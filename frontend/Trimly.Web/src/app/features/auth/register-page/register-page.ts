@@ -87,6 +87,7 @@ export class RegisterPage {
               }
               else{
                 this.loginResponseText = 'An error occurred. Please try again later.';
+                this.loginResponseTrigger$.next();
               }
           }
           this.loadState = LOAD_STATE.ERROR;
