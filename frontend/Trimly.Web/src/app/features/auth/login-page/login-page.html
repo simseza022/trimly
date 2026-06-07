@@ -1,31 +1,70 @@
-<form class="bg-black flex items-center justify-center w-screen min-h-dvh lg:h-screen " [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-alert-popup
-    text="Email confirmed. You can now log in."
-    [alertTrigger]="emailConfirmed.asObservable()"></app-alert-popup>
-  <div  class="w-fit h-fit p-10 bg-white rounded-3xl flex flex-col justify-start items-center alert gap-5">
-    <img src="assets/images/logo.png" class="w-16 h-16 bg-white rounded-xl logo-image">
-    <div class="text-center">
-      <h1 class="text-xl font-bold">Sign in with email</h1>
-      <p class="font-bold text-gray-400">Your time matters.</p>
-      <p class="font-bold text-gray-400">Trimly makes it simple.</p>
-    </div>
-
-    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
-    <div class="flex flex-row w-full items-end justify-end -mt-5 ">
-      <p class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Forgot password?</p>
-    </div>
-    <button type="submit" class="btn btn-wide text-xs bg-black text-white rounded-lg h-8 w-full">Login</button>
-    <p class="font-bold  text-xs text-gray-400">Or sign in with</p>
-    <div class="login-icon p-1 rounded-2 px-4 rounded-lg">
-      <ng-icon [name]="googleIcon" class="text-lg cursor-pointer  -mb-1"></ng-icon>
-    </div>
-
-    <div class="flex flex-row w-full justify-center items-center  mt-3 gap-2">
-      <p class=" text-xs text-gray-400 cursor-pointer ">Already have an account?</p>
-      <p routerLink="/register" class="font-bold text-xs text-gray-700 cursor-pointer hover:underline">Register</p>
-    </div>
-
+<main class="flex-grow flex items-center justify-center relative px-6 py-12 overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[100px]"></div>
+    <img class="w-full h-full object-cover opacity-20 grayscale scale-110" data-alt="Moody dark barbershop interior with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfwKiR1IWN4hduAhZLpraroMF1kTX7HhLPLyf2whrLKmsETD-9s3lvQWOlF7w9WSuLuP5mYTP0H3xbEAqsUfY0dageJtxucdz4WmO2RzDAa73HigZh2h2o3gb0FFbl8AZwMSV-JaONAQZp6oCQJDwU569cnpPaK5TcSSGVOYkFcOnOlwxthOT3uVv6WCQ6l24VktLeG6PgZDAHrAxAKAUY-EZ-2pPhVK-2WyoWhQSAZl8F5voz_HGKj6LOQFGl0HQQ5lOn6LJS6rA"/>
   </div>
+  <div class="z-10 w-full max-w-[480px]">
+    <div class="mb-10 text-center">
+      <h1 class="font-headline font-black text-4xl tracking-tighter text-gradient mb-2">Trimly</h1>
+      <p class="font-label text-on-surface-variant tracking-[0.2em] uppercase text-xs">Style on your schedule.</p>
+    </div>
+    <div class="glass-effect p-8 md:p-12 rounded-xl shadow-[0_12px_32px_0_rgba(0,0,0,0.6)] border border-outline-variant/10">
+      <div class="mb-8 flex flex-col justify-start items-center">
+        <h2 class="font-headline font-bold text-2xl text-on-surface mb-1">Welcome Back</h2>
+        <p class="text-on-surface-variant text-sm">Please enter your details to sign in.</p>
+      </div>
+      <form class="space-y-6 flex flex-col justify-start items-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-alert-popup
+          text="Email confirmed. You can now log in."
+          [alertTrigger]="emailConfirmed.asObservable()"></app-alert-popup>
+        <formly-form class="w-full flex flex-col justify-start items-center" [form]="form" [fields]="fields" [model]="model"></formly-form>
+        <div class="flex items-center gap-3 py-2">
+          <div class="flex items-center h-5">
+            <input class="w-4 h-4 rounded border-outline-variant/30 bg-surface-container-high text-primary focus:ring-primary-container focus:ring-offset-surface" id="remember" type="checkbox"/>
+          </div>
+          <label class="text-sm text-on-surface-variant cursor-pointer" for="remember">Stay signed in for 30 days</label>
+        </div>
+        <button class="btn-gradient w-full py-4 rounded-lg text-on-primary-fixed font-bold tracking-tight hover:brightness-110 active:scale-[0.98] transition-all shadow-lg shadow-primary/10" type="submit">
+          Login
+        </button>
+      </form>
+      <div class="mt-8 pt-8 border-t border-outline-variant/10">
+        <p class="text-center text-sm text-on-surface-variant">
+          New to the club?
+          <a routerLink="/register" class="text-primary font-semibold hover:underline underline-offset-4 ml-1">Register Now</a>
+        </p>
+      </div>
+    </div>
+    <div class="mt-12 flex justify-center gap-8 items-center">
+      <div class="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
+        <span class="material-symbols-outlined text-2xl" data-icon="fingerprint">fingerprint</span>
+        <span class="text-[10px] uppercase tracking-tighter">Biometric</span>
+      </div>
+      <div class="h-8 w-[1px] bg-outline-variant/20"></div>
+      <div class="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
+        <span class="material-symbols-outlined text-2xl" data-icon="qr_code_2">qr_code_2</span>
+        <span class="text-[10px] uppercase tracking-tighter">QR Login</span>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="w-full py-12 px-8 bg-surface-container-lowest border-t border-outline-variant/10">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto items-center">
+    <div class="text-left">
+      <span class="font-headline font-bold text-primary-container">Trimly</span>
+      <p class="font-body text-xs text-on-surface-variant mt-2">© 2024 Trimly Grooming. The Digital Concierge.</p>
+    </div>
+    <div class="flex justify-center gap-6">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors text-xs font-label" href="#">Contact</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors text-xs font-label" href="#">Instagram</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors text-xs font-label" href="#">TikTok</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors text-xs font-label" href="#">Download App</a>
+    </div>
+    <div class="text-right flex justify-end gap-4">
+      <span class="material-symbols-outlined text-on-surface-variant/40" data-icon="verified_user">verified_user</span>
+      <span class="material-symbols-outlined text-on-surface-variant/40" data-icon="shield">shield</span>
+    </div>
+  </div>
+</footer>
 
-
-</form>

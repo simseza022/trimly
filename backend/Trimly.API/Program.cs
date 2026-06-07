@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Trimly.Infrastructure;
 using Trimly.Infrastructure.Helpers;
@@ -19,6 +20,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod()
             .AllowCredentials();
     }));
+
+builder.Services.AddAuthentication().AddCookie("Identity.Bearer", options => options.)
 
 builder.Services.AddAuthorization();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -49,8 +52,13 @@ builder.Services
     .AddControllersWithViews()
     .AddRazorRuntimeCompilation();
 
-builder.Services.AddAuthentication()
-    .AddBearerToken(IdentityConstants.BearerScheme); 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Identity/Account/Login";
+    });
 
 
 builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection(SmtpOptions.Smtp));

@@ -1,3 +1,253 @@
-<div class="bg-black flex items-center justify-center w-screen min-h-dvh lg:h-screen ">
-  <p>home works!</p>
-</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-md shadow-[0_12px_32px_0_rgba(14,14,14,0.4)] h-20 flex justify-between items-center px-8">
+  <div class="flex items-center gap-12">
+    <span class="text-2xl font-black text-[#FEB05D] tracking-tighter font-headline">Trimly</span>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="text-[#FEB05D] border-b-2 border-[#FEB05D] pb-1 font-headline font-bold tracking-tight" href="#">Discover</a>
+      <a class="text-gray-400 hover:text-white transition-colors font-headline font-bold tracking-tight" href="#">How it Works</a>
+      <a class="text-gray-400 hover:text-white transition-colors font-headline font-bold tracking-tight" href="#">Become a Barber</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <button class="px-6 py-2.5 rounded-lg text-gray-400 hover:text-white transition-all font-bold tracking-tight active:scale-90 duration-200">Login</button>
+    <button class="px-6 py-2.5 rounded-lg bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed font-bold tracking-tight shadow-lg active:scale-95 duration-200">Sign Up</button>
+  </div>
+</nav>
+<main class="pt-20">
+  <!-- Hero Section -->
+  <section class="relative min-h-[921px] flex items-center overflow-hidden px-8">
+    <!-- Asymmetric Background Elements -->
+    <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-primary/10 via-transparent to-transparent pointer-events-none"></div>
+    <div class="absolute -bottom-48 -left-24 w-96 h-96 bg-secondary-container/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8 z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/15">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant font-label">The Digital Concierge</span>
+        </div>
+        <h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-[0.9] text-on-background">
+          Book smart.<br/>Skip the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-primary">wait.</span>
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+          Discover and book trusted grooming services in seconds. Premium experiences, hand-picked for the modern gentleman.
+        </p>
+        <div class="flex flex-wrap gap-4 pt-4">
+          <button class="px-8 py-4 rounded-xl bg-gradient-to-br from-primary-container to-primary text-on-primary-fixed font-headline font-extrabold text-lg shadow-xl shadow-primary-container/10 hover:translate-y-[-2px] transition-transform active:scale-95">
+            Book Appointment
+          </button>
+          <button class="px-8 py-4 rounded-xl border-2 border-outline-variant/30 text-on-surface font-headline font-extrabold text-lg hover:bg-surface-container-high transition-all">
+            List Your Shop
+          </button>
+        </div>
+      </div>
+      <div class="relative hidden lg:block">
+        <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl z-20 border border-outline-variant/10">
+          <img alt="Luxury Barber Shop Interior" class="w-full h-full object-cover" data-alt="Modern high-end barber shop interior with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdS9kFyc4BYhJemqMbPpU1jn4bHRrLNXpNQTDFOaTSMM6wWTSV7GIiWUNQCQnTG_lc159ELt1WjSWTcSj1ppyzUpGXIbvHAIxZV2AI6QKAlL2AtzPLwcgUxqi08O46DxeE_-WaZaNeEfm6jjZOfutvNuKzS_BKyBiFBvhnmjkzCY-jFu7wBa2R-2DMbgKX5M6xz06qx-bK1icurIvPUrCaKMoX8i6Cv_kV5YBgEX4ehTYYS0JLQ3GeTXYvsM6lmVz7EAFr1aoQor8"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+          <div class="absolute bottom-8 left-8 p-6 bg-surface-container-low/80 backdrop-blur-xl rounded-2xl border border-outline-variant/20 max-w-xs shadow-2xl">
+            <div class="flex items-center gap-1 text-primary-container mb-2">
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <p class="font-headline font-bold text-lg mb-1">"The best fade in London."</p>
+            <p class="text-xs text-on-surface-variant font-medium">Verified Client at The Refinery</p>
+          </div>
+        </div>
+        <!-- Decorative back layer -->
+        <div class="absolute -top-6 -right-6 w-full h-full border-2 border-primary/20 rounded-[2rem] -z-10"></div>
+      </div>
+    </div>
+  </section>
+  <!-- Top-Rated Barbers Section -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="flex justify-between items-end mb-12">
+        <div class="space-y-2">
+          <h2 class="text-4xl font-headline font-extrabold tracking-tight">Top-Rated Barbers</h2>
+          <p class="text-on-surface-variant">The elite masters of the blade near you.</p>
+        </div>
+        <div class="flex gap-4">
+          <button class="p-3 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button class="p-3 rounded-full bg-surface-container-high border border-outline-variant/20 text-on-surface hover:bg-primary hover:text-on-primary transition-colors">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Barber Card 1 -->
+        <div class="group bg-surface-container-high rounded-[1rem] overflow-hidden border-2 border-[#2F2F2F] hover:border-primary/40 transition-all duration-300 hover:shadow-2xl">
+          <div class="relative h-64 overflow-hidden">
+            <img alt="Barber Marcus" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Professional barber styling a client's hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ZN2TZ-xiwyfQL54x5IcR3vf-paQAVsKOuUFyx6iFMmJciLlYEoQrDW2XBDa_z42yL3zXaNEje0ooFosu3r1E5MD4vQ08Gcnz46FVrxArXQ05q88QDwpymC8vwdk7JmWCjv7talsWu9gPST66axf-G9nEe6ctmDqCNkRmENCp0g3aFU-tcdaVnKWfqLZLoeBSQcscEBlDWHtXPGLgo-LmFFDiMeXudIhqeRqe2AnqQwuJwmcKJEx7K4AkcwqwZi9McqBoBcd8DZk"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full flex items-center gap-1">
+              <span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="text-xs font-bold font-label">4.9</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <div>
+              <h3 class="text-xl font-headline font-bold text-on-surface">Marcus Thorne</h3>
+              <div class="flex items-center gap-2 text-on-surface-variant mt-1">
+                <span class="material-symbols-outlined text-sm">location_on</span>
+                <span class="text-xs font-medium font-label uppercase tracking-wider">Soho, London</span>
+              </div>
+            </div>
+            <div class="pt-4 flex justify-between items-center border-t border-outline-variant/10">
+              <span class="text-xs text-tertiary font-bold tracking-widest uppercase font-label">Master Barber</span>
+              <a class="text-primary-container font-headline font-extrabold text-sm flex items-center gap-1 group/link" href="#">
+                View Shop
+                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Barber Card 2 -->
+        <div class="group bg-surface-container-high rounded-[1rem] overflow-hidden border-2 border-[#2F2F2F] hover:border-primary/40 transition-all duration-300 hover:shadow-2xl">
+          <div class="relative h-64 overflow-hidden">
+            <img alt="Barber Elena" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Female barber with tattoos holding shears" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjbJlzycQC3QJJp_4vP-6501fl3VGEHJI841Hsnowf2S9pTfIpZ_ovMrcSDzLS2IaQ9lstXJpfmB3_QtUYJfFrHeSYqK96WfyQQEVKZDe8MPCasI3IgFTQpE1Nz47dKFXkwmiUpxzYhXvzJxehHRm6xUmcjdy0gfXv9shrhdDNrOKOrONAaq4K4C1sxUxxCKET1fYAGhdAEguix0vDHY90zEc7bQs5ysRNESYJ9N9Ut1UVVmyW2B-RayCoRALtIYhyWmMKjoOCi_Q"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full flex items-center gap-1">
+              <span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="text-xs font-bold font-label">5.0</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <div>
+              <h3 class="text-xl font-headline font-bold text-on-surface">Elena Rodriguez</h3>
+              <div class="flex items-center gap-2 text-on-surface-variant mt-1">
+                <span class="material-symbols-outlined text-sm">location_on</span>
+                <span class="text-xs font-medium font-label uppercase tracking-wider">Brooklyn, NY</span>
+              </div>
+            </div>
+            <div class="pt-4 flex justify-between items-center border-t border-outline-variant/10">
+              <span class="text-xs text-tertiary font-bold tracking-widest uppercase font-label">Artistic Director</span>
+              <a class="text-primary-container font-headline font-extrabold text-sm flex items-center gap-1 group/link" href="#">
+                View Shop
+                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Barber Card 3 -->
+        <div class="group bg-surface-container-high rounded-[1rem] overflow-hidden border-2 border-[#2F2F2F] hover:border-primary/40 transition-all duration-300 hover:shadow-2xl">
+          <div class="relative h-64 overflow-hidden">
+            <img alt="Barber Julian" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a barber focusing on a beard trim" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATqTJEKsMy3GesWNhf0d5VQ0Vm3TLH1YL1JsNyy4-VjkdkcwLs5qFl559QZWfSia4qwjxGq0K_XpdUcWZ9XyfoZXe-m9nupaoFOkRZW1rHQzTtnlXCuMMQFqxiSfCfU8G7nXrUYf6Lbc7ZN2NB7YOKrS4BFZn9vtbMEXRIu32LQteKl09bNHXVCwxrwjD9hpfQM2YujPaOaZTCZBpT3kr2rtxRVqaBhdFn86cRHU9rxRYyIXSB4LU35oka64GkmDN4XFboq_vn9r0"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full flex items-center gap-1">
+              <span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="text-xs font-bold font-label">4.8</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <div>
+              <h3 class="text-xl font-headline font-bold text-on-surface">Julian Rossi</h3>
+              <div class="flex items-center gap-2 text-on-surface-variant mt-1">
+                <span class="material-symbols-outlined text-sm">location_on</span>
+                <span class="text-xs font-medium font-label uppercase tracking-wider">Milan, Italy</span>
+              </div>
+            </div>
+            <div class="pt-4 flex justify-between items-center border-t border-outline-variant/10">
+              <span class="text-xs text-tertiary font-bold tracking-widest uppercase font-label">Style Specialist</span>
+              <a class="text-primary-container font-headline font-extrabold text-sm flex items-center gap-1 group/link" href="#">
+                View Shop
+                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Barber Card 4 -->
+        <div class="group bg-surface-container-high rounded-[1rem] overflow-hidden border-2 border-[#2F2F2F] hover:border-primary/40 transition-all duration-300 hover:shadow-2xl">
+          <div class="relative h-64 overflow-hidden">
+            <img alt="Barber Sam" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Barber smile in a vintage style barber shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNul_ShSm6oZfzYMiC2jWjMGa1YzqFGynG8gJJINDsHywqUZVtsmshVkJdLwDb43HuAudsaS1aa0qLsparw5_TRCNNquWjTPMmKJEKK-WiawZ6LUEn43uHR99ouMWhdizV-LkqAllj0HS6dW-fmXOWStok5BChczRXXuXX4sgazF62935183YJAg1PlE1oZ_nm1j7NGawOH4pqNrwnyGzeqRJGntkvvAFWcmQHCNs4-DwmdD_drU_rMsvPGKAheMZuv3FuADLL7No"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-surface-container-lowest/80 backdrop-blur-md rounded-full flex items-center gap-1">
+              <span class="material-symbols-outlined text-primary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="text-xs font-bold font-label">4.9</span>
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <div>
+              <h3 class="text-xl font-headline font-bold text-on-surface">Sam Nguyen</h3>
+              <div class="flex items-center gap-2 text-on-surface-variant mt-1">
+                <span class="material-symbols-outlined text-sm">location_on</span>
+                <span class="text-xs font-medium font-label uppercase tracking-wider">West Hollywood, CA</span>
+              </div>
+            </div>
+            <div class="pt-4 flex justify-between items-center border-t border-outline-variant/10">
+              <span class="text-xs text-tertiary font-bold tracking-widest uppercase font-label">Senior Groomer</span>
+              <a class="text-primary-container font-headline font-extrabold text-sm flex items-center gap-1 group/link" href="#">
+                View Shop
+                <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Bento Grid Feature Section -->
+  <section class="py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[600px]">
+        <div class="md:col-span-2 bg-surface-container-high rounded-[1rem] p-8 relative overflow-hidden group">
+          <div class="relative z-10 space-y-4 max-w-sm">
+            <h3 class="text-3xl font-headline font-extrabold">Instant Booking</h3>
+            <p class="text-on-surface-variant">See real-time availability and secure your slot in under 30 seconds. No phone calls required.</p>
+          </div>
+          <div class="absolute bottom-0 right-0 w-1/2 translate-y-12 translate-x-12 opacity-50 group-hover:translate-y-6 transition-transform">
+            <img class="rounded-xl shadow-2xl rotate-[-5deg]" data-alt="Digital calendar with appointment slots on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB5AAwdIexAE2FpUhRKSaiu9xOvr44lhO_S-WPMnZ5eAl5SExjWwi1bjWZ8bo1Us6oxVsZARNCDy2z4MoGJrMtAcWQM0QgnkvYIO3MHUzoE8YbgYwXggCUjr1yJNWpGa6HNSdkEUidCUbxj6-3hn39onu-CSvUcdXGenv8OAKnekon5ehcvyeJ72f-AiatRGy1eam8naxprrbpWOxPoM5kwTEdeNoah7M_fSvA-BFgMnduTvh53gd8VM2kif-fnhhVp55SNOsbeuM"/>
+          </div>
+        </div>
+        <div class="bg-primary-container rounded-[1rem] p-8 flex flex-col justify-between text-on-primary-container">
+          <span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+          <div class="space-y-2">
+            <h3 class="text-2xl font-headline font-extrabold">Seamless Payments</h3>
+            <p class="text-sm font-medium opacity-80">Pay securely in-app or at the shop. Tip your barber with one tap.</p>
+          </div>
+        </div>
+        <div class="bg-surface-container-high rounded-[1rem] p-8 flex flex-col justify-center items-center text-center space-y-4 border-2 border-outline-variant/10">
+          <div class="w-16 h-16 rounded-full bg-secondary-container/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary text-3xl">verified_user</span>
+          </div>
+          <h3 class="text-xl font-headline font-extrabold">Vetted Pros Only</h3>
+          <p class="text-sm text-on-surface-variant">Every barber on Trimly is manually reviewed for quality and hygiene.</p>
+        </div>
+        <div class="md:col-span-2 bg-[#1C1B1B] rounded-[1rem] p-8 relative overflow-hidden flex items-center justify-between border-2 border-outline-variant/5">
+          <div class="space-y-4">
+            <h3 class="text-3xl font-headline font-extrabold">Trimly Rewards</h3>
+            <p class="text-on-surface-variant">Earn points with every cut. Get every 10th session on us.</p>
+            <button class="px-6 py-3 bg-surface-bright rounded-lg font-bold text-sm">Join Rewards Program</button>
+          </div>
+          <div class="hidden sm:block">
+            <span class="material-symbols-outlined text-[120px] text-primary/10 select-none">military_tech</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0E0E0E] w-full py-12 px-8 border-t border-[#524438]/15">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <div class="space-y-4">
+      <span class="font-['Manrope'] font-bold text-[#FEB05D] text-2xl">Trimly</span>
+      <p class="text-xs text-gray-500 max-w-xs leading-relaxed">
+        Elevating the grooming experience through seamless technology and editorial curation.
+      </p>
+      <p class="text-xs text-gray-500">© 2024 Trimly Grooming. The Digital Concierge.</p>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="text-[#FEB05D] text-sm font-bold font-headline mb-2 uppercase tracking-widest">Connect</h4>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">Instagram</a>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">TikTok</a>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">Twitter / X</a>
+    </div>
+    <div class="flex flex-col gap-3">
+      <h4 class="text-[#FEB05D] text-sm font-bold font-headline mb-2 uppercase tracking-widest">Company</h4>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">Contact</a>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">Download App</a>
+      <a class="text-gray-500 hover:text-gray-300 transition-colors text-xs font-body" href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>

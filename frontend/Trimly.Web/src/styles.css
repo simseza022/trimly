@@ -3,6 +3,96 @@
   themes: light --default;
 }
 
+@theme {
+  /* Colors */
+  --color-on-error: #690005;
+  --color-on-error-container: #ffdad6;
+  --color-background: #131313;
+  --color-on-secondary: #002b74;
+  --color-tertiary-fixed: #bee9ff;
+  --color-secondary-fixed: #dae2ff;
+  --color-surface: #131313;
+  --color-surface-variant: #353534;
+  --color-secondary: #b2c5ff;
+  --color-tertiary-container: #6fccf4;
+  --color-on-secondary-fixed: #001848;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-highest: #353534;
+  --color-tertiary: #afe4ff;
+  --color-on-tertiary-fixed: #001f2a;
+  --color-inverse-on-surface: #313030;
+  --color-surface-bright: #393939;
+  --color-surface-container-high: #2a2a2a;
+  --color-on-primary-fixed-variant: #693c00;
+  --color-inverse-surface: #e5e2e1;
+  --color-on-tertiary-container: #00556f;
+  --color-primary: #ffd5ae;
+  --color-primary-container: #feb05d;
+  --color-outline: #9f8e7e;
+  --color-on-surface-variant: #d7c3b2;
+  --color-on-secondary-fixed-variant: #1c4292;
+  --color-primary-fixed: #ffdcbd;
+  --color-on-primary: #4a2800;
+  --color-outline-variant: #524438;
+  --color-secondary-fixed-dim: #b2c5ff;
+  --color-error-container: #93000a;
+  --color-inverse-primary: #8a5100;
+  --color-surface-tint: #ffb86f;
+  --color-surface-dim: #131313;
+  --color-on-surface: #e5e2e1;
+  --color-tertiary-fixed-dim: #75d2fa;
+  --color-on-background: #e5e2e1;
+  --color-on-tertiary-fixed-variant: #004d64;
+  --color-on-primary-container: #744300;
+  --color-on-secondary-container: #9db6ff;
+  --color-on-primary-fixed: #2c1600;
+  --color-on-tertiary: #003546;
+  --color-error: #ffb4ab;
+  --color-surface-container-low: #1c1b1b;
+  --color-secondary-container: #1f4595;
+  --color-surface-container: #201f1f;
+  --color-primary-fixed-dim: #ffb86f;
+
+  /* Fonts */
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* Border Radius */
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .glass-effect {
+    background: rgba(28, 27, 27, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #feb05d 0%, #ffd5ae 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .btn-gradient {
+    background: linear-gradient(135deg, #feb05d 0%, #ffd5ae 100%);
+  }
+}
 
 @plugin "daisyui/theme" {
   name: "cupcake";

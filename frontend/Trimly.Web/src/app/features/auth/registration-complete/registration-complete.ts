@@ -9,11 +9,9 @@ import {matfFolderMailColored} from '@ng-icons/material-file-icons/colored';
 @Component({
   selector: 'app-registration-complete',
     imports: [
-        AlertPopup,
         FormlyModule,
         FormsModule,
         NgIcon,
-        RouterLink
     ],
   templateUrl: './registration-complete.html',
   styleUrl: './registration-complete.css',

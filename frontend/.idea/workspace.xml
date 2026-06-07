@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="309a74e3-0df9-4ddd-97ec-b495e47b2b2b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../backend/Trimly.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Trimly.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/Trimly.API/Views/Shared/Emails/SendConfirmationLink.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/Trimly.API/Views/Shared/Emails/SendConfirmationLink.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/backend.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/backend.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/login-page/login-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/login-page/login-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/login-page/login-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/login-page/login-page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/registration-complete/registration-complete.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/app/features/auth/registration-complete/registration-complete.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/app/features/home/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/app/features/home/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trimly.Web/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Trimly.Web/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="61" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3Dak1E7Kadq8JRibmJj6nTpSbjD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/home/sisonke/Projects/trimly/frontend/Trimly.Web/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="309a74e3-0df9-4ddd-97ec-b495e47b2b2b" name="Changes" comment="" />
+      <created>1778527350751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778527350751</updated>
+      <workItem from="1778527353631" duration="3190000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+</project>
